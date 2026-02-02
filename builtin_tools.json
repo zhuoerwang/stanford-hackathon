@@ -1,0 +1,44 @@
+{
+  "client_actions": {
+    "enabled": true,
+    "actions": [
+      {
+        "name": "user_profile",
+        "description": "Receives the patient's pre-filled profile from the web app (cancer type, stage, prior treatments, biomarkers, location)",
+        "direction": "app_to_agent",
+        "behavior": "respond"
+      },
+      {
+        "name": "trial_selected",
+        "description": "User clicked on a trial card in the UI. The payload contains nct_id (e.g. NCT06710223). Call mcp-tools_get_trial_details with this nct_id and explain the trial details.",
+        "direction": "app_to_agent",
+        "behavior": "respond"
+      },
+      {
+        "name": "add_criteria",
+        "description": "Update the patient's profile sidebar with newly confirmed eligibility criteria",
+        "direction": "agent_to_app"
+      },
+      {
+        "name": "show_trials",
+        "description": "Display matching clinical trials in the UI",
+        "direction": "agent_to_app"
+      },
+      {
+        "name": "update_match_count",
+        "description": "Update the estimated matching trial count in the sidebar",
+        "direction": "agent_to_app"
+      },
+      {
+        "name": "clear_trials",
+        "description": "Clear the trial results from the UI",
+        "direction": "agent_to_app"
+      },
+      {
+        "name": "show_trial_details",
+        "description": "Display detailed trial information in a modal. Send after calling mcp-tools_get_trial_details. Include: nct_id, title, phase, status, locations, summary, eligibility (array), description, sponsor, contact (object with name/phone/email).",
+        "direction": "agent_to_app"
+      }
+    ]
+  }
+}
